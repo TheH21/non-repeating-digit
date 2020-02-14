@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <head>
   <script type="text/javascript">
-
-    function findFirstNonRepeating(num) {
-        var origNum = (num.toString()).split('');
-        var arr = (num.toString()).split('').sort();
-        if (arr[0] != arr[1]) {
-            return arr[0];
-        } else while (arr[1] == arr[0] || arr[1] == arr[2]) {
-            console.log(arr);
-            arr.shift();
-            if (arr.length == 0) {
-              return "Oops, no non-repeating numbers here!"
-              break;
-            }
+    function findFirstUnique(num) {
+        var uniqArr = [];
+        var total = 0;
+        for (let i = 0; i < num.length; i += 1) {
+          if ((num.split(num[total]).length -1) === 1) {
+            uniqArr.push(num[total]);
+          }
+          total += 1;
         }
-        return arr[1];
-
+        if (uniqArr.length === 0) {
+          return "Oops, no unique numbers here!"
+        }
+        return "First unique number: " + uniqArr[0];
     }
 
+    function findAllUnique(num) {
+        var uniqArr = [];
+        var total = 0;
+        for (let i = 0; i < num.length; i += 1) {
+          if ((num.split(num[total]).length -1) === 1) {
+            uniqArr.push(num[total]);
+          }
+          total += 1;
+        }
+        if (uniqArr.length === 0) {
+          return "Oops, no unique numbers here!"
+        }
+        return "All unique numbers: " + uniqArr;
+    }
 
   </script>
 </head>
-
-
-
 <body>
-
-<h1 style="color:red;text-align:center;font-size:24pt;font-family:Verdana;"><em style="color:purple;">(Lowest)</em> Non-Repeating Digit Checker!</h1>
+<h1 style="text-align:center;color:red;font-family:Verdana;">Unique Number: Redux</h1>
 <div id="formbox" style="margin:auto;text-align:center;">
 <input type="text" style="text-align:center;" id="dangus" name="field" placeholder="Put a number here!">
-<input type="submit" onclick="alert(findFirstNonRepeating(document.getElementById('dangus').value))">
+<input type="submit" value="First Unique Number" onclick="alert(findFirstUnique(document.getElementById('dangus').value))">
+<input type="submit" value="All Unique Numbers" onclick="alert(findAllUnique(document.getElementById('dangus').value))">
 </div>
-
-
-
-
-
-
 
 </body>
