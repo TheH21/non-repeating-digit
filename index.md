@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <head>
   <script type="text/javascript">
     function findFirstUnique(num) {
